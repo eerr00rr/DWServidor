@@ -5,7 +5,7 @@
     $subcadena = $_GET["sub"];
 
     $resultado = "";
-    $palabras = explode(' ', $cadena);
+    $palabras = explode(' ', str_replace(',', ' ', $cadena));
 
     foreach($palabras as $palabra) {
         if (contieneSubcadena($palabra, $subcadena) !== false) {
