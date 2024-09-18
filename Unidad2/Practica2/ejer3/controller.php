@@ -3,11 +3,26 @@
 
     $cadena = $_GET['str'];
     $array = explode(' ', $cadena);
+    print_r($array);
 
-    $vocalesMayor = $array[0];
-    $vocalesMenor = $array[0];
+    $palabraMayor = '';
+    $palabraMenor = '';
+    $vocalesMax = -1 ;
+    $vocalesMin = mb_strlen($cadena); 
 
-    for ($i=0; $i < 10; $i++) { 
-        # code...
+    foreach ($array as $palabra) {
+        $numVocales = cuentaVocales($palabra);
+
+        if ($numVocales > $vocalesMax) {
+            $vocalesMax = $numVocales;
+            $palabraMayor = $palabra; 
+        }
+        if ($numVocales < $vocalesMin) {
+            $vocalesMin = $numVocales;
+            $palabraMenor = $palabra;
+        }
     }
+
+    echo "Palabra con mas vocales es $palabraMayor <br>";
+    echo "Palabra con menos vocales es $palabraMenor";
 ?>
