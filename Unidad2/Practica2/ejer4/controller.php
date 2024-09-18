@@ -10,7 +10,7 @@
     foreach($palabras as $palabra) {
         echo $palabra;
         if (contieneSubcadena($palabra, $subcadena) !== false) {
-            $resultado = "$resultado$palabra, ";
+            $resultado .= "$palabra, ";
         }
     }
 
