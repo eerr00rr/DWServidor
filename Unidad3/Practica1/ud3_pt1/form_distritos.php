@@ -1,3 +1,6 @@
+<?php 
+    include 'datos_distritos.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,15 +18,20 @@
         <h1>CONSULTA DATOS POR DISTRITOS</h1>
         <label for="distrito">Distrito:</label>
         <select name="distrito" id="distrito">
-            
-        </select>
-        <br>
-        <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" name="nombre">
-        <br>
-        <label for="apellidos">Apellidos</label>
-        <input type="text" id="apellidos" name="apellidos">
-        <button type="submit">Enviar</button>
+            <?php
+                foreach ($datos_distritos as $distrito => $numero) {
+                    if ($distrito == 'Patraix') {
+                        echo "<option value='$distrito' selected>$distrito</option>";
+                    } else {
+                        echo "<option value='$distrito'>$distrito</option>";
+                    }
+                }
+            ?>
+        </select><br>
+        <input type="checkbox" name="todosDistritos" id="todoDistritos">
+        <label for="todosDistritos">Mostrar todos los distritos</label><br>
+        <button type="submit">Consultar</button><br>
+        <a href="menu.php">Volver</a>
     </form>
 </body>
 </html>

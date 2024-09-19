@@ -16,6 +16,6 @@
     if ($encontrado) {
         header("Location: menu.php?nombre=$nombre&apellidos=$apellidos");
     } else {
-    echo "DNI no válido <br><a href='index.html>Volver</a>";
+        echo "DNI no válido <br><a href='index.html>Volver</a>";
     }
 ?>
