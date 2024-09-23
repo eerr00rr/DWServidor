@@ -28,10 +28,11 @@
                 }
             ?>
         </select><br>
-        <input type="checkbox" name="todosDistritos" id="todoDistritos">
+        <input type="checkbox" name="todosDistritos" id="todosDistritos">
         <label for="todosDistritos">Mostrar todos los distritos</label><br>
         <button type="submit">Consultar</button><br>
-        <a href="menu.php">Volver</a>
-    </form>
-</body>
+        <?php echo "<input type=\"hidden\" name=\"nombre\" value=\"$nombre\">";?>      
+        <?php echo "<input type=\"hidden\" name=\"apellidos\" value=\"$apellidos\">";?> 
+        <?php echo "<a href='menu.php?nombre=$nombre&apellidos=$apellidos'>Inicio</a>";?>; 
+    </body>
 </html>

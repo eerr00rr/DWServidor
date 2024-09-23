@@ -11,11 +11,10 @@
             $apellidos = $_GET['apellidos'];
             echo "
                 <h1>Bienvenido $nombre $apellidos !</h1>
-                <a href='form_distritos.php?nombre=$nombre&apellidos=$apellidos'>Datos por distritos</a>
+                <a href='form_distritos.php?nombre=$nombre&apellidos=$apellidos'>Datos por distritos</a><br>
+                <a href='form_patraix.php?nombre=$nombre&apellidos=$apellidos'>Datos por barrios (distrito de Patraix)</a>
             ";
         ?> 
-        <br>
-        <a href='index.html'>Datos por barrios (distrito de Patraix)</a>
         <br><br>
         <a href='index.html'>Volver</a>
     </body>
