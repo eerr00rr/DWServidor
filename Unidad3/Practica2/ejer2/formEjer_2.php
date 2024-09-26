@@ -6,7 +6,7 @@ foreach ($errores as $error){
 ?>
 </p>
 
-<form ACTION="" METHOD="POST">
+<form ACTION="resultado.php" METHOD="POST">
 <p>Nombre: <input TYPE="text" name="nombre"></p>
 <p>
 	<input type="radio" name="dado" value="1"> 1 Dado<br>
