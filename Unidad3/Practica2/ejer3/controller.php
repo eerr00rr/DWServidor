@@ -43,10 +43,12 @@
         $premium = (isset($_POST['premium'])) ? $_POST['premium'] : "";
         $resultado .= "$premium<br>";
 
+        #UNFINISHED
         $mostrar_imagen = (isset($_POST['imagenes'])) ? "imagen aleatorio" : '';
         $resultado .= "$mostrar_imagen<br>";
 
         if (!empty($errores)) {
+            #UNFINISHED
             header("Location: index.php?errores=$errores");
         } else {
             echo $resultado;
