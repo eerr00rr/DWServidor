@@ -1,6 +1,6 @@
 <?php
     include '../libs/bGeneral.php';
-
+	
     function pintaRadio($provincias, $name) {
         foreach ($provincias as $provincia) {
             echo "<input type='radio' name='$name' value='$provincia'> $provincia";
