@@ -38,12 +38,12 @@ Mostraremos el formulario para poder volver a jugar o un enlace. -->
 		$sumaO = 0;
 
 		for ($i=0; $i < $dados; $i++) { 
-			$random = array(rand(0, 5), rand(0, 5));
+			$random = array(rand(1, 6), rand(1, 6));
 
-			$dadosJ[] = ($usar_imagenes) ? $imagenes[$random[0]]: $random[0];
+			$dadosJ[] = ($usar_imagenes) ? $imagenes[$random[0] - 1]: $random[0];
 			$sumaJ += $random[0];
 
-			$dadosO[] = ($usar_imagenes) ? $imagenes[$random[1]]: $random[1];
+			$dadosO[] = ($usar_imagenes) ? $imagenes[$random[1] - 1]: $random[1];
 			$sumaO += $random[1];
 		}
 

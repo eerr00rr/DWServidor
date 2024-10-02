@@ -43,7 +43,16 @@
         $premium = (isset($_POST['premium'])) ? $_POST['premium'] : "";
         $resultado .= "$premium<br>";
 
-        $mostrar_imagen = (isset($_POST['imagenes'])) ? "<img src='img/1.png'>" : '';
+        $imagenes = array(
+			'<img src="img/1.png">',
+			'<img src="img/2.png">',
+			'<img src="img/3.png">',
+			'<img src="img/4.png">',
+			'<img src="img/5.png">',
+			'<img src="img/6.png">'
+		);
+        $imagen_aleatoria = rand(0, count($imagenes) - 1);
+        $mostrar_imagen = (isset($_POST['imagenes'])) ? $imagenes[$imagen_aleatoria] : '';
         $resultado .= "$mostrar_imagen<br>";
 
         if (!empty($errores)) {
