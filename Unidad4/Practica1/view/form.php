@@ -8,6 +8,7 @@
     <br>
     <input type="submit" name="bAceptar" value="Enviar">
 </form>
+<br><a href="../index.php">Inicio</a>
 <?php
     include 'footer.php';   
 ?>

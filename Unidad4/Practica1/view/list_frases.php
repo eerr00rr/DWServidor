@@ -18,7 +18,12 @@
 <br>
 <a href="../index.php">Inicio</a>
 <br>
-<a href="../controller/reiniciar.php">Borrar cookies</a>
+<?php
+    if (count($array_frases) > 0) {
+        echo("<a href=\"../controller/reiniciar.php\">Borrar cookies</a>");
+    }
+?>
+
 <?php
     include 'footer.php';   
 ?>
