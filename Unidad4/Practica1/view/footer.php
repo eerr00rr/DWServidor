@@ -1,6 +1,4 @@
-<?php
-    function pie() {
-        echo "</body>
-        </html>";
-    }
-?>
+    <hr>
+    <div align='center'>-pie de pagina-</div>
+</body>
+</html>
