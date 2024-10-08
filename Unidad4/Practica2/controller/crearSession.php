@@ -1,6 +1,5 @@
 <?php
-    function crearSession($array) {
-        session_start();
-        $_SESSION['hello'] = serialize($array);
+    function crearSession($nombre, $array) {
+        $_SESSION[$nombre] = $array;
     }
 ?>
