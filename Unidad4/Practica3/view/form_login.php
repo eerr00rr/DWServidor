@@ -15,6 +15,9 @@ $checked = isset($_COOKIE['cookie_rec']) ? "checked ": "";
 </form>
 
 <?php
+    if (isset($_COOKIE['cookie_rec'])) {
+        echo "<a href='../controller/borrarCookie.php'>Borrar Cookies</a>";
+    }
 // Incluimos el footer
 include 'footer.php';
 ?>

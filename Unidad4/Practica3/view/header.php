@@ -8,6 +8,7 @@
         <?php 
             session_start();
             if (isset($_SESSION['userName'])) {
-                echo "Has hecho login como " . $_SESSION['userName'];
+                echo "Has hecho login como " . $_SESSION['userName'] . "\t";
+                echo "<a href='logout.php'>Log Out</a>";
             }
         ?>
