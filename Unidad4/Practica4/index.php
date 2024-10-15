@@ -16,5 +16,10 @@
         <input type="text" id="apellidos" name="apellidos"><br>
         <button type="submit">Enviar</button>
     </form>
+    <?php
+        if (empty(!$_COOKIE)) {
+            echo '<a href="controlador/borrar_cookies.php">Borrar Cookies</a>';
+        }
+    ?>
 </body>
 </html>

@@ -12,8 +12,8 @@
         $select = $_GET['distrito'];
         $valor = $datos_distritos[$select];
         echo "El distrito $select tiene $valor<br>";
-        setcookie('distritoDefecto', serialize($datos_distritos[$select]), time() + 3600, '/');
+        setcookie('distritoDefecto', $select, time() + 3600, '/');
     }
     
-    echo "<a href='menu.php?nombre=$nombre&apellidos=$apellidos'>Inicio</a>";
+    echo "<a href='../view/menu.php'>Inicio</a>";
 ?>
