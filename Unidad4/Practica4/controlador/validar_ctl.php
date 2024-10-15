@@ -14,8 +14,10 @@
     }
 
     if ($encontrado) {
-        header("Location: menu.php?nombre=$nombre&apellidos=$apellidos");
-    } else {
-        echo "DNI no válido <br><a href='index.html>Volver</a>";
-    }
+        $valorCookie = array($nombre, $apellidos);
+        setcookie('nombreApellidos', serialize($valorCookie), time() + 3600, "/");
+        header("Location: ../view/menu.php");
+    } 
+    
+    echo "DNI no válido <br><a href='index.html>Volver</a>";
 ?>

@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
     <?php
+        include "header.php";
+        
         $nombre = $_GET['nombre'];
         $apellidos = $_GET['apellidos'];
         echo "<h1>Bienvenido $nombre $apellidos !</h1>";
@@ -30,5 +24,4 @@
         <?php echo "<input type=\"hidden\" name=\"apellidos\" value=\"$apellidos\">";?>  
     </form>
     <a href="menu.php">Volver</a>
-</body>
-</html>
+<?php include "footer.php"; ?>
