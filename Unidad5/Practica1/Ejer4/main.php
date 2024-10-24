@@ -61,6 +61,6 @@
 
     imprimir($usuario, 'Usuario');
     imprimir($maquina, 'Maquina');
-    echo "<br>";
+    echo "<br><br>";
     jugar($usuario, $maquina);
 ?>
