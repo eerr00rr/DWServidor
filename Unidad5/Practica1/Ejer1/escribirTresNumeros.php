@@ -3,8 +3,8 @@
         $mensaje = '';
         $numeros = array($num1, $num2, $num3);
 
-        $fichero = 'datosEjercicios.txt';
-        if (fopen($fichero, 'w')) {
+        $ruta = 'datosEjercicios.txt';
+        if ($fichero = fopen($ruta, 'w')) {
             foreach ($numeros as $num) {
                 $mensaje .= $num . PHP_EOL;
             }
