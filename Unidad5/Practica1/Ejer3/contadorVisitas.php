@@ -1,23 +1,33 @@
 <?php
-    $ruta = 'contador.txt';
-    $visitas;
+    function contador() {
+        $ruta = 'contador.txt';
 
-    if (is_file($ruta)) {
-        if ($fichero = fopen($ruta, 'w+')) {
-            $visitas = intval(fgets($fichero));
-            echo $visitas;
-            $visitas++;
-            fwrite($fichero, $visitas);
-            echo "Numero de visitas: $visitas";
-        }
-    } else {
-        if ($fichero = fopen($ruta, 'w')) {
-            echo 'ha creado el fichero por primera vez';
+        if (is_file($ruta)) {
+            if ($fichero = fopen($ruta, 'r+')) {
+                $visitas = intval(fgets($fichero));
+                $visitas++;
 
-            $visitas = 0;
-            fwrite($fichero, $visitas);
+                ftruncate($fichero, 0);
+                rewind($fichero);
+
+                fwrite($fichero, $visitas);
+                fclose($fichero);
+            } else {
+                echo "no podia abrir $fichero";
+            }
         } else {
-            echo 'Error: creacion de fichero';
+            if ($fichero = fopen($ruta, 'w')) {
+                echo 'ha creado el fichero por primera vez<br>';
+
+                $visitas = 1;
+                fwrite($fichero, $visitas);
+                fclose($fichero);
+            } else {
+                echo 'Error: creacion de fichero';
+            }
         }
+        return $visitas;
     }
+    $visitas = contador();
+    echo "Numero de visitas: $visitas";
 ?>
