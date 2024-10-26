@@ -1,0 +1,21 @@
+body {
+    width: 100vw;
+    display: flex;
+    gap: 10vw;
+}
+
+form {
+    width: 25vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+input {
+    width: 200px;
+}
+
+button {
+    height: 40px;
+}
