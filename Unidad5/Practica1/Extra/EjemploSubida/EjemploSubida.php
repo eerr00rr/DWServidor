@@ -6,6 +6,7 @@
 * Para facilitarlo tenemos un formulario que sólo tiene un campo fichero
 */
 include('./libs/bGeneral.php');
+include('../Ejer5/controller.php');
 // Cargamos cabecera html
 cabecera('ejemplo.php');
 $errores = [];
@@ -15,7 +16,7 @@ $errores = [];
  * Tiene que estar creada esta carpeta, sino da error
  * */
 
-$dir = "./archivos";
+$dir = "./imagenes";
 /**
  * Tamaño máximo aceptado, si queremos que sea inferior al configurado en php.ini
  **/
@@ -29,11 +30,12 @@ $extensionesValidas = array(
     "gif"
 );
 
-function validarFormulario($nombre, $edad, $errores) {
-    if (cTexto($nombre, 'nombre', $errores) && cNum($edad, 'edad', $errores)) {
-        return true;
-    }
-    return false;
+function construirComentario($nombre, $correo) {
+    $str = '';
+    $fecha = date('d-m-Y');
+
+    $str = "<b>$nombre</b> (<a href=''>$correo</a>) escrito el <i>$fecha</i>";
+    return $str;
 }
 /**
  * Si no hemos pulsado el botón aceptar => cargamos el formulario
@@ -104,6 +106,11 @@ if (!isset($_REQUEST['bAceptar'])) {
                 $errores["imagen"] = "La imagen debe de tener un tamaño inferior a 50 kb";
             }
 
+            $nombre = $_POST['nombre'];
+            $edad = $_POST['edad'];
+            cTexto($nombre, 'nombre', $errores);
+            cNum($edad, 'edad', $errores);
+
             /*
             * Si no ha habido errores, almacenamos el archivo en ubicación definitiva si no hay errores
             */
@@ -114,6 +121,7 @@ if (!isset($_REQUEST['bAceptar'])) {
                  * */
                 $nombreArchivo = is_file($dir . DIRECTORY_SEPARATOR . $nombreArchivo) ? time() . $nombreArchivo : $nombreArchivo;
                 $nombreCompleto = $dir . DIRECTORY_SEPARATOR . $nombreArchivo;
+                echo $nombreCompleto;
                 /**
                  * Movemos el fichero a la ubicación definitiva.
                  * */

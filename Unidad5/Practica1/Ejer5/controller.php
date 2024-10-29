@@ -54,6 +54,7 @@
         }
     }
 
+    
     if (isset($_POST['publicar'])) {
         $contenido = $_POST['contenido'];
         $nombre = $_POST['nombre'];
