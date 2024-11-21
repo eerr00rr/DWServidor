@@ -1,14 +1,13 @@
 <?php
-		require_once '../config/config.inc.php';
-		require_once '../model/business/class_cuenta.php';
-		require_once '../model/persistence/class_cuentaDAO.php';
-		require_once '../view/linkInicio.php';
+require_once '../config/config.inc.php';
+require_once '../model/business/class_cuenta.php';
+require_once '../model/persistence/class_cuentaDAO.php';
+require_once '../view/linkInicio.php';
 
-		$cuentaDAO = new cuentaDAO();
+$cuentaDAO = new cuentaDAO();
 
-		$arrayCuentas = $cuentaDAO->verCuentas();
+$arrayCuentas = $cuentaDAO->verCuentas();
 
-		require_once '../view/list_cuentas.php';
+require_once '../view/list_cuentas.php';
 
-		linkInicio();
-?>
+linkInicio();

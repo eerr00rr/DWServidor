@@ -1,11 +1,13 @@
 <?php
 require_once 'class_db.php';
-class cuentaDAO {
+class cuentaDAO
+{
 
-	public function inserir($cuenta) {
+	public function inserir($cuenta)
+	{
 
-	    $query="insert into cuenta (codigo, saldo, cliente) values ('".$cuenta->getCodigo()."',
-			'".$cuenta->getSaldo()."', '".$cuenta->getCliente()."');";
+		$query = "insert into cuenta (codigo, saldo, cliente) values ('" . $cuenta->getCodigo() . "',
+			'" . $cuenta->getSaldo() . "', '" . $cuenta->getCliente() . "');";
 
 		$con = new db();
 		$resultado = $con->consulta($query);
@@ -14,20 +16,36 @@ class cuentaDAO {
 		return $resultado;
 	}
 
-	public function eliminar($id) {
+	public function eliminar($id)
+	{
 
-	    $query="delete from cuenta where id = '".$id."';";
+		$query = "delete from cuenta where id = '" . $id . "';";
 
-    	$con = new db();
+		$con = new db();
 		$resultado = $con->consulta($query);
 		$con->close();
 
 		return $resultado;
 	}
 
-	public function buscarId($id) {
+	public function modificar($id, $codigo, $saldo, $cliente)
+	{
+		$query = "
+			update cuenta
+			set codigo = '$codigo', saldo = '$saldo', cliente = '$cliente'
+			where id = '$id';";
 
-		$query="select * from cuenta where id = '".$id."';";
+		$con = new db();
+		$resultado = $con->consulta($query);
+		$con->close();
+
+		return $resultado;
+	}
+
+	public function buscarId($id)
+	{
+
+		$query = "select * from cuenta where id = '" . $id . "';";
 
 		$con = new db();
 		$consulta = $con->consulta($query);
@@ -36,30 +54,28 @@ class cuentaDAO {
 		$row = $consulta->fetch_object();
 
 		if (isset($row)) {
-		  $cuenta = new cuenta($row->codigo, $row->saldo, $row->cliente);
-	      $cuenta->setId($row->id);
+			$cuenta = new cuenta($row->codigo, $row->saldo, $row->cliente);
+			$cuenta->setId($row->id);
 
-		  return $cuenta;
+			return $cuenta;
 		}
-
 	}
 
-	public function verCuentas() {
-		$query="SELECT * FROM cuenta;";
+	public function verCuentas()
+	{
+		$query = "SELECT * FROM cuenta;";
 
-	    $con = new db();
+		$con = new db();
 		$consulta = $con->consulta($query);
 		$con->close();
 
 		$arrayCuentas = array();
 		foreach ($consulta as $row) {
-		  $cuenta = new cuenta($row["codigo"], $row["saldo"], $row["cliente"]);
-	      $cuenta->setId($row["id"]);
-	      array_push($arrayCuentas, $cuenta);
-        }
+			$cuenta = new cuenta($row["codigo"], $row["saldo"], $row["cliente"]);
+			$cuenta->setId($row["id"]);
+			array_push($arrayCuentas, $cuenta);
+		}
 
 		return $arrayCuentas;
-  }
-
+	}
 }
- ?>
