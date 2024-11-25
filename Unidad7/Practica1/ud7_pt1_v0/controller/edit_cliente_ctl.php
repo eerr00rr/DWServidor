@@ -27,15 +27,19 @@ try {
 			$clienteModificado->setNombre($_REQUEST['nombre']);
 		}
 
+		if (isset($_REQUEST['apellidos'])) {
+			$clienteModificado->setApellidos($_REQUEST['apellidos']);
+		}
+
 		if (isset($_REQUEST['fechaN'])) {
 			$clienteModificado->setFechaN($_REQUEST['fechaN']);
 		}
 
-		$resultado = $cuentaDAO->modificar($id, $clienteModificado->getDni(), $clienteModificado->getNombre(), $clienteModificado->getApellidos(), $clienteModificado->getFechaN());
+		$resultado = $clienteDAO->modificar($id, $clienteModificado->getDni(), $clienteModificado->getNombre(), $clienteModificado->getApellidos(), $clienteModificado->getFechaN());
 
 		// el método inserir retorna false en caso de error
 		if ($resultado) {
-			$msg = "Cuenta con la id $id ha sido modificado correctamente";
+			$msg = "Cliente con la id $id ha sido modificado correctamente";
 		}
 		// si no venimos de hacer submit, mostramos el formulario al usuario
 	} else {

@@ -5,7 +5,7 @@ require_once '../model/persistence/class_clienteDAO.php';
 require_once '../view/printMsg.php';
 require_once '../view/linkInicio.php';
 
-$cuentaDAO = new clienteDAO();
+$clienteDAO = new clienteDAO();
 
 // comprobamos si la cuenta existe antes de eliminarla
 if (isset($_REQUEST['id'])) {
@@ -24,7 +24,7 @@ try {
 			$msg = "Datos eliminados correctamente!!";
 		}
 	} else {
-		$msg = "No se ha podido eliminar. La cuenta no existe";
+		$msg = "No se ha podido eliminar. El cliente no existe";
 	}
 } catch (Exception $e) {
 	$msg = "Error al eliminar los datos .$e";
