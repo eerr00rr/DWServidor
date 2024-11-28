@@ -1,6 +1,6 @@
 <?php
 require_once 'class_db.php';
-class cuentaDAO
+class cuentaDAO extends db
 {
 
 	public function inserir($cuenta)
@@ -9,9 +9,8 @@ class cuentaDAO
 		$query = "insert into cuenta (codigo, saldo, cliente) values ('" . $cuenta->getCodigo() . "',
 			'" . $cuenta->getSaldo() . "', '" . $cuenta->getCliente() . "');";
 
-		$con = new db();
-		$resultado = $con->consulta($query);
-		$con->close();
+		$resultado = $this->consulta($query);
+		$this->close();
 
 		return $resultado;
 	}
@@ -21,9 +20,8 @@ class cuentaDAO
 
 		$query = "delete from cuenta where id = '" . $id . "';";
 
-		$con = new db();
-		$resultado = $con->consulta($query);
-		$con->close();
+		$resultado = $this->consulta($query);
+		$this->close();
 
 		return $resultado;
 	}
@@ -35,9 +33,8 @@ class cuentaDAO
 			set codigo = '$codigo', saldo = '$saldo', cliente = '$cliente'
 			where id = '$id';";
 
-		$con = new db();
-		$resultado = $con->consulta($query);
-		$con->close();
+		$resultado = $this->consulta($query);
+		$this->close();
 
 		return $resultado;
 	}
@@ -47,9 +44,8 @@ class cuentaDAO
 
 		$query = "select * from cuenta where id = '" . $id . "';";
 
-		$con = new db();
-		$consulta = $con->consulta($query);
-		$con->close();
+		$consulta = $this->consulta($query);
+		$this->close();
 
 		$row = $consulta->fetch_object();
 
@@ -65,9 +61,8 @@ class cuentaDAO
 	{
 		$query = "SELECT * FROM cuenta;";
 
-		$con = new db();
-		$consulta = $con->consulta($query);
-		$con->close();
+		$consulta = $this->consulta($query);
+		$this->close();
 
 		$arrayCuentas = array();
 		foreach ($consulta as $row) {

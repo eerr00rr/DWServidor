@@ -27,7 +27,8 @@
 				</tr>
 				<tr>
 					<td>Fecha Nacimiento: </td>
-					<td> <?php echo $cliente->getFechaN(); ?></td>
+					<td> <?php $date = new DateTime($cliente->getFechaN());
+							echo date_format($date, 'd-m-Y'); ?></td>
 				</tr>
 			<?php
 			}

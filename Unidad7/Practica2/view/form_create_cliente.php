@@ -22,7 +22,7 @@
 			</tr>
 			<tr>
 				<td>Fecha Nacimiento</td>
-				<td><input type='date' name='fechaN' size='50' /></td>
+				<td><input type='date' name='fechaN' size='50' value="<?php echo date('Y-m-d'); ?>" /></td>
 			</tr>
 		</table><br />
 		<input type='submit' name='submit' value='Envia' />

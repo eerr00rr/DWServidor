@@ -41,8 +41,6 @@ try {
 		}
 		// si no venimos de hacer submit, mostramos el formulario al usuario
 	} else {
-		$clienteDAO = new clienteDAO();
-		$arrayClientes = $clienteDAO->verClientes();
 		require_once '../view/form_edit_cuenta.php';
 	}
 } catch (Exception $e) {

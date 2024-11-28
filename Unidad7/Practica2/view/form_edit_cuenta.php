@@ -20,19 +20,14 @@
             </tr>
             <tr>
                 <td>Saldo</td>
-                <td><input type='text' name='saldo' size='50' value="<?php echo $cuenta->getSaldo() ?>" /></td>
+                <td><input type='number' name='saldo' size='50' value="<?php echo $cuenta->getSaldo() ?>" /></td>
             </tr>
             <tr>
                 <td>Cliente</td>
                 <td>
                     <select name="cliente">
-                        <?php
-                        foreach ($arrayClientes as $cliente) {
-                            $selected = $cliente->getId() == $id ? 'selected' : '';
-                            echo "<option value='{$cliente->getId()}' $selected>{$cliente->getNombre()} {$cliente->getApellidos()}</option>";
-                        }
-                        ?>
-                        <select>
+                        <?php require_once '../controller/clientes_select.php'; ?>
+                    </select>
         </table><br />
         <input type='submit' name='submit' value='Modifica' />
     </form>

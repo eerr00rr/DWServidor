@@ -1,6 +1,6 @@
 <?php
 require_once 'class_db.php';
-class clienteDAO
+class clienteDAO extends db
 {
 
 	public function inserir($cliente)
@@ -9,9 +9,8 @@ class clienteDAO
 		$query = "insert into cliente (dni, nombre, apellidos, fechaN) values ('" . $cliente->getDni() . "',
 			'" . $cliente->getNombre() . "', '" . $cliente->getApellidos() . "', '" . $cliente->getFechaN() . "');";
 
-		$con = new db();
-		$resultado = $con->consulta($query);
-		$con->close();
+		$resultado = $this->consulta($query);
+		$this->close();
 
 		return $resultado;
 	}
@@ -21,9 +20,8 @@ class clienteDAO
 
 		$query = "delete from cliente where id = '" . $id . "';";
 
-		$con = new db();
-		$resultado = $con->consulta($query);
-		$con->close();
+		$resultado = $this->consulta($query);
+		$this->close();
 
 		return $resultado;
 	}
@@ -35,9 +33,8 @@ class clienteDAO
 			set dni = '$dni', nombre = '$nombre', apellidos = '$apellidos', fechaN = '$fechaN'
 			where id = '$id';";
 
-		$con = new db();
-		$resultado = $con->consulta($query);
-		$con->close();
+		$resultado = $this->consulta($query);
+		$this->close();
 
 		return $resultado;
 	}
@@ -46,9 +43,8 @@ class clienteDAO
 	{
 		$query = "select * from cliente where id = '" . $id . "';";
 
-		$con = new db();
-		$consulta = $con->consulta($query);
-		$con->close();
+		$consulta = $this->consulta($query);
+		$this->close();
 
 		$row = $consulta->fetch_object();
 
@@ -64,9 +60,8 @@ class clienteDAO
 	{
 		$query = "SELECT * FROM cliente;";
 
-		$con = new db();
-		$consulta = $con->consulta($query);
-		$con->close();
+		$consulta = $this->consulta($query);
+		$this->close();
 
 		$arrayClentes = array();
 		foreach ($consulta as $row) {
