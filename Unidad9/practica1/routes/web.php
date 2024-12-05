@@ -17,6 +17,7 @@ Route::match(['get', 'post'], '/cuenta/new', [
     CuentaController::class,
     'new'
 ])->name('cuenta_new');
+
 Route::get('/cuenta/delete/{id}', [
     CuentaController::class,
     'delete'
