@@ -7,7 +7,7 @@
 <h1>Edit Cuenta</h1>
 <a href="{{ route('cuenta_list') }}">&laquo; Volver</a>
 <div style="margin-top: 20px">
-    <form method="POST" action="{{ route('cuenta_edit') }}">
+    <form method="POST" action="{{ route('cuenta_edit', ['id' => $cuenta->id]) }}">
         @csrf
         <div>
             <label for="codigo">Código</label>
