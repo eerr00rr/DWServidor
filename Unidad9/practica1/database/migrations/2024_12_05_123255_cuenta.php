@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('codigo');
             $table->integer('saldo');
-            $table->unsignedBigInteger('user_id')
+            $table->unsignedBigInteger('cliente_id')
                 ->nullable();
-            $table->foreign('user_id')
+            $table->foreign('cliente_id')
                 ->references('id')
                 ->on('clientes');
             $table->timestamps();

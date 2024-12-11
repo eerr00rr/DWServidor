@@ -24,11 +24,11 @@
         <tr>
             <td>{{ $cuenta->codigo }}</td>
             <td>{{ $cuenta->saldo }}</td>
-            <td>{{ $cuenta->cliente_id
-}}</td>
+            <td>{{ $cuenta->cliente_id }}</td>
             <td>
-                <a href="{{ route('cuenta_delete', ['id' =>
-$cuenta->id]) }}">Eliminar</a>
+                <a href="{{ route('cuenta_delete', ['id' => $cuenta->id]) }}">Eliminar</a>
+                <br>
+                <a href="{{ route('cuenta_edit', ['id' => $cuenta->id]) }}">Edit</a>
             </td>
         </tr>
         @endforeach
