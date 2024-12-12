@@ -24,7 +24,11 @@
         <tr>
             <td>{{ $cuenta->codigo }}</td>
             <td>{{ $cuenta->saldo }}</td>
-            <td>{{ $cuenta->cliente_id }}</td>
+            @isset($cuenta->cliente)
+            <td>{{ $cuenta->cliente->getNombreApellidos() }}</td>
+            @else
+            <td></td>
+            @endisset
             <td>
                 <a href="{{ route('cuenta_delete', ['id' => $cuenta->id]) }}">Eliminar</a>
                 <br>

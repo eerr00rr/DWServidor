@@ -21,13 +21,13 @@
             <label for="cliente_id">Cliente</label>
             <select name="cliente_id">
                 @foreach ($clientes as $cliente)
-                <option value="{{ $cliente->id }}" @selected(old('cliente_id')==$cliente)>
+                <option value="{{ $cliente->id }}" @selected($cliente->id==$cuenta->id)>
                     {{ $cliente->nombre }}{{ $cliente->apellidos }}
                 </option>
                 @endforeach
             </select>
         </div>
-        <button type="submit">Crear Cuenta</button>
+        <button type="submit">Editar Cuenta</button>
     </form>
 </div>
 @endsection

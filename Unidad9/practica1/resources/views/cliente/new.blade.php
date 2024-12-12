@@ -1,0 +1,31 @@
+@extends('layout')
+@section('title', 'Nueva Cliente')
+@section('stylesheets')
+@parent
+@endsection
+@section('content')
+<h1>Nueva Cliente</h1>
+<a href="{{ route('cliente_list') }}">&laquo; Volver</a>
+<div style="margin-top: 20px">
+    <form method="POST" action="{{ route('cliente_new') }}">
+        @csrf
+        <div>
+            <label for="dni">DNI</label>
+            <input type="text" name="dni" />
+        </div>
+        <div>
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" />
+        </div>
+        <div>
+            <label for="apellidos">Apellidos</label>
+            <input type="text" name="apellidos" />
+        </div>
+        <div>
+            <label for="fechaN">Fecha Nacimiento</label>
+            <input type="date" name="fechaN" />
+        </div>
+        <button type="submit">Crear cliente</button>
+    </form>
+</div>
+@endsection

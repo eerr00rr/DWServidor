@@ -23,7 +23,7 @@ class CuentaController extends Controller
             $cuenta->saldo = $request->saldo;
             $cuenta->cliente_id = $request->cliente_id;
             $cuenta->save();
-            return redirect()->route('cuenta_list')->with('status', 'Nueva cuenta' . $cuenta->codigo . ' creada!');
+            return redirect()->route('cuenta_list')->with('status', 'Nueva cuenta ' . $cuenta->codigo . ' creada!');
         }
         // si no venimos de hacer submit al formulario, tenemos que mostrar el formulario
         $clientes = Cliente::all();
@@ -33,19 +33,19 @@ class CuentaController extends Controller
     {
         $cuenta = Cuenta::find($id);
         $cuenta->delete();
-        return redirect()->route('cuenta_list')->with('status', 'Cuenta' . $cuenta->codigo . ' eliminada!');
+        return redirect()->route('cuenta_list')->with('status', 'Cuenta ' . $cuenta->codigo . ' eliminada!');
     }
     function edit(Request $request, $id)
     {
+        $cuenta = Cuenta::find($id);
         if ($request->isMethod(('post'))) {
-            $cuenta = Cuenta::find($id);
             $cuenta->codigo = $request->codigo;
             $cuenta->saldo = $request->saldo;
             $cuenta->cliente_id = $request->cliente_id;
             $cuenta->save();
-            return redirect()->route('cuenta_edit')->with('status', 'Cuenta' . $cuenta->codigo . ' editado!');
+            return redirect()->route('cuenta_list')->with('status', 'Cuenta ' . $cuenta->codigo . ' editado!');
         }
         $clientes = Cliente::all();
-        return view('cuenta.edit', ['clientes' => $clientes]);
+        return view('cuenta.edit', ['clientes' => $clientes, 'cuenta' => $cuenta]);
     }
 }

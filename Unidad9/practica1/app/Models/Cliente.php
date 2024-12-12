@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Cliente extends Model
 {
     use HasFactory;
+
+    public function getNombreApellidos(): string
+    {
+        return "$this->nombre $this->apellidos";
+    }
 }

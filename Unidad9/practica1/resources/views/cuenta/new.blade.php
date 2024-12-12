@@ -20,6 +20,7 @@
         <div>
             <label for="cliente_id">Cliente</label>
             <select name="cliente_id">
+                <option value="">«-- selecciona un cliente --»</option>
                 @foreach ($clientes as $cliente)
                 <option value="{{ $cliente->id }}">{{ $cliente->nombre }}
                     {{ $cliente->apellidos }}
