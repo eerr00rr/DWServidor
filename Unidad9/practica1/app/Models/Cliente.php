@@ -15,15 +15,7 @@ class Cliente extends Model
         return "$this->nombre $this->apellidos";
     }
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'fechaN' => 'datetime:d-m-Y',
-        ];
-    }
+    protected $casts = [
+        'fechaN' => 'datetime:Y-m-d',
+    ];
 }

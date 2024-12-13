@@ -26,7 +26,7 @@
             <td>{{ $cliente->dni }}</td>
             <td>{{ $cliente->nombre }}</td>
             <td>{{ $cliente->apellidos }}</td>
-            <td>{{ $cliente->fechaN }}</td>
+            <td>{{ $cliente->fechaN->format('d-m-Y') }}</td>
             <td>
                 <a href="{{ route('cliente_delete', ['id' => $cliente->id]) }}">Eliminar</a>
                 <br>

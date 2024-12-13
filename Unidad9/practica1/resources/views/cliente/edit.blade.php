@@ -23,7 +23,7 @@
         </div>
         <div>
             <label for="fechaN">Fecha Nacimiento</label>
-            <input type="date" name="fechaN" value="{{ $cliente->fechaN }}" />
+            <input type="date" name="fechaN" value="{{ $cliente->fechaN->format('Y-m-d') }}" />
         </div>
         <button type="submit">Editar cliente</button>
     </form>
