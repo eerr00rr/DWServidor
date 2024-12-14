@@ -12,22 +12,6 @@ return [
     | as the size rules. Feel free to tweak each of these messages here.
     |
     */
-    // traducidos: required, max, size, unique, before_or_equal
-    'required' => 'El campo :attribute es obligatorio.',
-    'max' => [
-        'array' => 'El :attribute debe no tener más de :max elementos.',
-        'file' => 'El :attribute debe no ser mayor que :max kilobytes.',
-        'numeric' => 'El :attribute debe no ser mayor que :max.',
-        'string' => 'El :attribute debe no ser mayor que :max caracteres.',
-    ],
-    'size' => [
-        'array' => 'El :attribute debe contener :size elementos.',
-        'file' => 'El :attribute debe ser de :size kilobytes.',
-        'numeric' => 'El :attribute debe ser :size.',
-        'string' => 'El :attribute debe ser de :size caracteres.',
-    ],
-    'unique' => 'Ya se ha tomado.',
-    'before_or_equal' => 'El :attribute debe ser una fecha anterior o igual a :date.',
 
     'accepted' => 'The :attribute field must be accepted.',
     'accepted_if' => 'The :attribute field must be accepted when :other is :value.',
@@ -40,6 +24,7 @@ return [
     'array' => 'The :attribute field must be an array.',
     'ascii' => 'The :attribute field must only contain single-byte alphanumeric characters and symbols.',
     'before' => 'The :attribute field must be a date before :date.',
+    'before_or_equal' => 'The :attribute field must be a date before or equal to :date.',
     'between' => [
         'array' => 'The :attribute field must have between :min and :max items.',
         'file' => 'The :attribute field must be between :min and :max kilobytes.',
@@ -105,6 +90,12 @@ return [
         'string' => 'The :attribute field must be less than or equal to :value characters.',
     ],
     'mac_address' => 'The :attribute field must be a valid MAC address.',
+    'max' => [
+        'array' => 'The :attribute field must not have more than :max items.',
+        'file' => 'The :attribute field must not be greater than :max kilobytes.',
+        'numeric' => 'The :attribute field must not be greater than :max.',
+        'string' => 'The :attribute field must not be greater than :max characters.',
+    ],
     'max_digits' => 'The :attribute field must not have more than :max digits.',
     'mimes' => 'The :attribute field must be a file of type: :values.',
     'mimetypes' => 'The :attribute field must be a file of type: :values.',
@@ -141,6 +132,7 @@ return [
     'prohibited_unless' => 'The :attribute field is prohibited unless :other is in :values.',
     'prohibits' => 'The :attribute field prohibits :other from being present.',
     'regex' => 'The :attribute field format is invalid.',
+    'required' => 'The :attribute field is required.',
     'required_array_keys' => 'The :attribute field must contain entries for: :values.',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_if_accepted' => 'The :attribute field is required when :other is accepted.',
@@ -150,9 +142,16 @@ return [
     'required_without' => 'The :attribute field is required when :values is not present.',
     'required_without_all' => 'The :attribute field is required when none of :values are present.',
     'same' => 'The :attribute field must match :other.',
+    'size' => [
+        'array' => 'The :attribute field must contain :size items.',
+        'file' => 'The :attribute field must be :size kilobytes.',
+        'numeric' => 'The :attribute field must be :size.',
+        'string' => 'The :attribute field must be :size characters.',
+    ],
     'starts_with' => 'The :attribute field must start with one of the following: :values.',
     'string' => 'The :attribute field must be a string.',
     'timezone' => 'The :attribute field must be a valid timezone.',
+    'unique' => 'The :attribute has already been taken.',
     'uploaded' => 'The :attribute failed to upload.',
     'uppercase' => 'The :attribute field must be uppercase.',
     'url' => 'The :attribute field must be a valid URL.',
