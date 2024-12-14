@@ -6,6 +6,13 @@
 @section('content')
 <h1>Nueva Cliente</h1>
 <a href="{{ route('cliente_list') }}">&laquo; Volver</a>
+<div style="color: red;">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
 <div style="margin-top: 20px">
     <form method="POST" action="{{ route('cliente_new') }}">
         @csrf
