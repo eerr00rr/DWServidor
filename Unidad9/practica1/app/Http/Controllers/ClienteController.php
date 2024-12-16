@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Validation\Rule;
 use App\Models\Cuenta;
 use App\Models\Cliente;
-use Illuminate\Validation\Rule;
 use cliente as GlobalCliente;
 
 class ClienteController extends Controller
@@ -35,6 +36,17 @@ class ClienteController extends Controller
             $cliente->nombre = $validateData['nombre'];
             $cliente->apellidos = $validateData['apellidos'];
             $cliente->fechaN = $validateData['fechaN'];
+
+            if ($request->file('imagen')) {
+                $file = $request->file('imagen');
+                $idAleatorio = uniqid();
+                $extension = $file->getClientOriginalExtension();
+                $filename = $cliente->nombre . "_" . $cliente->apellidos . "_" . $idAleatorio . "." . $extension;
+
+                $file->move(public_path('uploads/imagenes'), $filename);
+                $cliente->imagen = $filename;
+            }
+
             $cliente->save();
             return redirect()->route('cliente_list')->with('status', 'Nuevo cliente ' . $cliente->getNombreApellidos() . ' creada!');
         }
@@ -67,6 +79,22 @@ class ClienteController extends Controller
             $cliente->nombre = $validateData['nombre'];
             $cliente->apellidos = $validateData['apellidos'];
             $cliente->fechaN = $validateData['fechaN'];
+
+            if (isset($request->borrarImagen)) {
+                File::delete(public_path('uploads/imagenes/' . $cliente->imagen));
+                $cliente->imagen = null;
+            }
+
+            if ($request->file('imagen')) {
+                $file = $request->file('imagen');
+                $idAleatorio = uniqid();
+                $extension = $file->getClientOriginalExtension();
+                $filename = $cliente->nombre . "_" . $cliente->apellidos . "_" . $idAleatorio . "." . $extension;
+
+                $file->move(public_path('uploads/imagenes'), $filename);
+                $cliente->imagen = $filename;
+            }
+
             $cliente->save();
             return redirect()->route('cliente_list')->with('status', 'Cliente ' . $cliente->getNombreApellidos() . ' editado!');
         }

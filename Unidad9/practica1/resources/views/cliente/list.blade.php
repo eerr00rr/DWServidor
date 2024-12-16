@@ -18,6 +18,7 @@
             <th>Nombre</th>
             <th>Apellidos</th>
             <th>FechaN</th>
+            <th>Imagen</th>
         </tr>
     </thead>
     <tbody>
@@ -27,6 +28,7 @@
             <td>{{ $cliente->nombre }}</td>
             <td>{{ $cliente->apellidos }}</td>
             <td>{{ $cliente->fechaN->format('d-m-Y') }}</td>
+            <td><img src="{{ asset('uploads/imagenes/' . $cliente->imagen) }}" alt="{{ $cliente->imagen }}" style="height:200px;width:200px;"></td>
             <td>
                 <a href="{{ route('cliente_delete', ['id' => $cliente->id]) }}">Eliminar</a>
                 <br>

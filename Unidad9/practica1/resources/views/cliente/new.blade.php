@@ -14,7 +14,7 @@
     </ul>
 </div>
 <div style="margin-top: 20px">
-    <form method="POST" action="{{ route('cliente_new') }}">
+    <form method="POST" action="{{ route('cliente_new') }}" enctype="multipart/form-data">
         @csrf
         <div>
             <label for="dni">DNI</label>
@@ -31,6 +31,10 @@
         <div>
             <label for="fechaN">Fecha Nacimiento</label>
             <input type="date" name="fechaN" value="{{ date_create()->format('Y-m-d') }}" />
+        </div>
+        <div>
+            <label for="imagen">Imagen</label>
+            <input type="file" name="imagen" />
         </div>
         <button type="submit">Crear cliente</button>
     </form>
