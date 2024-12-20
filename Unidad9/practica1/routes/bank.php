@@ -18,17 +18,17 @@ Route::get('/cuenta/list', [CuentaController::class, 'list'])->name('cuenta_list
 Route::match(['get', 'post'], '/cuenta/new', [
     CuentaController::class,
     'new'
-])->name('cuenta_new');
+])->middleware('auth')->name('cuenta_new');
 //// DELETE
 Route::get('/cuenta/delete/{id}', [
     CuentaController::class,
     'delete'
-])->name('cuenta_delete');
+])->middleware('auth')->name('cuenta_delete');
 //// EDIT
 Route::match(['get', 'post'], '/cuenta/edit/{id}', [
     CuentaController::class,
     'edit'
-])->name('cuenta_edit');
+])->middleware('auth')->name('cuenta_edit');
 
 //// CLIENTES
 Route::get('/cliente/list', [ClienteController::class, 'list'])->name('cliente_list');
@@ -36,14 +36,14 @@ Route::get('/cliente/list', [ClienteController::class, 'list'])->name('cliente_l
 Route::match(['get', 'post'], '/cliente/new', [
     ClienteController::class,
     'new'
-])->name('cliente_new');
+])->middleware('auth')->name('cliente_new');
 //// DELETE
 Route::get('/cliente/delete/{id}', [
     ClienteController::class,
     'delete'
-])->name('cliente_delete');
+])->middleware('auth')->name('cliente_delete');
 //// EDIT
 Route::match(['get', 'post'], '/cliente/edit/{id}', [
     ClienteController::class,
     'edit'
-])->name('cliente_edit');
+])->middleware('auth')->name('cliente_edit');

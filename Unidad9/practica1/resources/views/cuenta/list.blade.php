@@ -5,7 +5,9 @@
 @endsection
 @section('content')
 <h1>Listado de cuentas</h1>
+@if (Auth::check())
 <a href="{{ route('cuenta_new') }}">+ Nueva cuenta</a>
+@endif
 @if (session('status'))
 <div>
     <strong>Success!</strong> {{ session('status') }}
@@ -29,11 +31,13 @@
             @else
             <td></td>
             @endisset
+            @if (Auth::check())
             <td>
                 <a href="{{ route('cuenta_delete', ['id' => $cuenta->id]) }}">Eliminar</a>
                 <br>
                 <a href="{{ route('cuenta_edit', ['id' => $cuenta->id]) }}">Edit</a>
             </td>
+            @endif
         </tr>
         @endforeach
     </tbody>
