@@ -48,7 +48,7 @@ class CuentaController extends Controller
     function edit(Request $request, $id)
     {
         $cuenta = Cuenta::find($id);
-        if ($request->isMethod(('post'))) {
+        if ($request->isMethod('post')) {
             $validatedData = $request->validate([
                 'codigo' => [
                     'required',
@@ -67,5 +67,13 @@ class CuentaController extends Controller
         }
         $clientes = Cliente::all();
         return view('cuenta.edit', ['clientes' => $clientes, 'cuenta' => $cuenta]);
+    }
+
+    function filtrar_codigo(Request $request, $codigo)
+    {
+        $cadena_filtro = $request->filter;
+
+        $cuentas = Cuenta::all();
+        return view('cuenta.list', ['cuentas' => $cuentas]);
     }
 }

@@ -14,4 +14,9 @@ class Cuenta extends Model
     {
         return $this->belongsTo(Cliente::class);
     }
+
+    static function buscaCodigo($cadena)
+    {
+        //$this->where($cadena, 'like', );
+    }
 }

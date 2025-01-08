@@ -43,4 +43,9 @@
     </tbody>
 </table>
 <br>
+<form method="POST" action="{{ route('cuenta_filtro') }}">
+    <label for="filter">Busca por <b>codigo:</b></label>
+    <input type="text" name="filter" required>
+    <input type="submit" value="Filtrar">
+</form>
 @endsection
