@@ -15,6 +15,7 @@ class CuentaController extends Controller
         $cuentas = Cuenta::all();
         return view('cuenta.list', ['cuentas' => $cuentas]);
     }
+
     function new(Request $request)
     {
         if ($request->isMethod('post')) {
@@ -36,12 +37,14 @@ class CuentaController extends Controller
         $clientes = Cliente::all();
         return view('cuenta.new', ['clientes' => $clientes]);
     }
+
     function delete($id)
     {
         $cuenta = Cuenta::find($id);
         $cuenta->delete();
         return redirect()->route('cuenta_list')->with('status', 'Cuenta ' . $cuenta->codigo . ' eliminada!');
     }
+
     function edit(Request $request, $id)
     {
         $cuenta = Cuenta::find($id);
