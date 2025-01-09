@@ -14,7 +14,7 @@ Route::get('/', [DefaultController::class, 'home'])->name('home');
 
 //// CUENTAS
 Route::get('/cuenta/list', [CuentaController::class, 'list'])->name('cuenta_list');
-Route::post('/cuenta/list', [CuentaController::class, 'filtrar_codigo'])->name('cuenta_filtro');
+Route::get('/cuenta/filter', [CuentaController::class, 'filtrar'])->name('cuenta_filtro');
 //// NEW
 Route::match(['get', 'post'], '/cuenta/new', [
     CuentaController::class,

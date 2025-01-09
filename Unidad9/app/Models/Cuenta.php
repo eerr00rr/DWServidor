@@ -15,8 +15,12 @@ class Cuenta extends Model
         return $this->belongsTo(Cliente::class);
     }
 
-    static function buscaCodigo($cadena)
+    static function buscarAnd($filtro, $saldo_min)
     {
-        //$this->where($cadena, 'like', );
+        return Cuenta::where('codigo', 'like', "%$filtro%")->where('saldo', '>=', "$saldo_min")->get();
+    }
+    static function buscarOr($filtro, $saldo_min)
+    {
+        return Cuenta::where('codigo', 'like', "%$filtro%")->orWhere('saldo', '>=', "$saldo_min")->get();
     }
 }

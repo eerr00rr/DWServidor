@@ -69,11 +69,18 @@ class CuentaController extends Controller
         return view('cuenta.edit', ['clientes' => $clientes, 'cuenta' => $cuenta]);
     }
 
-    function filtrar_codigo(Request $request, $codigo)
+    function filtrar(Request $request)
     {
-        $cadena_filtro = $request->filter;
+        $filtro = $request->filtro;
+        $saldo_min = isset($request->saldo) ? $request->saldo : '0';
 
-        $cuentas = Cuenta::all();
-        return view('cuenta.list', ['cuentas' => $cuentas]);
+        $boton = $request->submit;
+        if (preg_match_all('/AND/', $boton)) {
+            $cuentas = Cuenta::buscarAnd($filtro, $saldo_min);
+        } else {
+            $cuentas = Cuenta::buscarOr($filtro, $saldo_min);
+        }
+
+        return view('cuenta.list', ['cuentas' => $cuentas, 'filtro' => $filtro, 'saldo' => $saldo_min]);
     }
 }

@@ -5,6 +5,16 @@
 @endsection
 @section('content')
 <h1>Listado de cuentas</h1>
+@if (isset($filtro))
+<div>
+    <i>Filtrado por codigo <b>{{ $filtro }}</b></i>
+    <br><br>
+    <i>Saldo minimo <b>{{ $saldo }}</b></i>
+    <br><br>
+    <a href="{{ route('cuenta_list') }}">Limpiar</a>
+</div>
+@endif
+<br>
 @if (Auth::check())
 <a href="{{ route('cuenta_new') }}">+ Nueva cuenta</a>
 @endif
@@ -43,9 +53,14 @@
     </tbody>
 </table>
 <br>
-<form method="POST" action="{{ route('cuenta_filtro') }}">
+<form method="get" action="{{ route('cuenta_filtro') }}">
     <label for="filter">Busca por <b>codigo:</b></label>
-    <input type="text" name="filter" required>
-    <input type="submit" value="Filtrar">
+    <input type="text" name="filtro" required>
+    <br>
+    <label for="filter"><b>Saldo</b> minimo:</label>
+    <input type="number" name="saldo">
+    <br>
+    <input type="submit" name="submit" value="Filtro AND">
+    <input type="submit" name="submit" value="Filtro OR">
 </form>
 @endsection
