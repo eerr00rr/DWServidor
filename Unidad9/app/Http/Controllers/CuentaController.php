@@ -12,7 +12,7 @@ class CuentaController extends Controller
 {
     function list()
     {
-        $cuentas = Cuenta::all();
+        $cuentas = Cuenta::orderSaldoDesc();
         return view('cuenta.list', ['cuentas' => $cuentas]);
     }
 

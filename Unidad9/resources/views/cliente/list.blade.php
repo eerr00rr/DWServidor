@@ -22,7 +22,7 @@
             <th>FechaN</th>
             <th>Imagen</th>
         </tr>
-    </thead>
+        </thead->cuentas>
     <tbody>
         @foreach ($clientes as $cliente)
         <tr>
@@ -31,7 +31,7 @@
             <td>{{ $cliente->apellidos }}</td>
             <td>{{ $cliente->fechaN->format('d-m-Y') }}</td>
             <td><img src="{{ asset('uploads/imagenes/' . $cliente->imagen) }}" alt="{{ $cliente->imagen }}" style="height:200px;width:200px;"></td>
-            <td>{{ $cliente->cuentas->count() }}</td>
+            <td>{{ $cliente->contar() }}</td>
             @if (Auth::check())
             <td>
                 <a href="{{ route('cliente_delete', ['id' => $cliente->id]) }}">Eliminar</a>

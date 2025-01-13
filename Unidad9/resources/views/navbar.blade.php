@@ -22,4 +22,6 @@
     <a href="{{ route('cuenta_list') }}">Cuentas</a>
     <span> | </span>
     <a href="{{ route('cliente_list') }}">Clientes</a>
+    <span> | </span>
+    <a href="{{ route('estadistica') }}">Estadisticas</a>
 </nav>

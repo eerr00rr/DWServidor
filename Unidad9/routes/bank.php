@@ -11,6 +11,7 @@ return view('welcome');
 */
 
 Route::get('/', [DefaultController::class, 'home'])->name('home');
+Route::get('/estadistica', [DefaultController::class, 'estadistica'])->name('estadistica');
 
 //// CUENTAS
 Route::get('/cuenta/list', [CuentaController::class, 'list'])->name('cuenta_list');
