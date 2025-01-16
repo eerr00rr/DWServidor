@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
 
         DB::table('libros')->insert([
             'titulo' => 'The Dog',
@@ -27,10 +27,26 @@ class DatabaseSeeder extends Seeder
             'ventas' => 69,
             'autor_id' => null
         ]);
+        DB::table('libros')->insert([
+            'titulo' => 'Metro',
+            'fechaP' => '2013/01/05',
+            'ventas' => 20,
+            'autor_id' => 1
+        ]);
+        DB::table('libros')->insert([
+            'titulo' => 'Otro',
+            'fechaP' => '2013/01/05',
+            'ventas' => 20,
+            'autor_id' => null
+        ]);
 
         DB::table('autors')->insert([
             'nombre' => 'Jane',
             'apellidos' => 'Doe'
+        ]);
+        DB::table('autors')->insert([
+            'nombre' => 'Artem',
+            'apellidos' => 'Morozov'
         ]);
     }
 }
