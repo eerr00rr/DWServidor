@@ -1,0 +1,32 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{tituloListado}}
+    </div>
+    <div *ngIf="libros.length==0">
+        <h4>No hay libros</h4>
+    </div>
+    <div *ngIf="libros.length>0" class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Titulo</th>
+                    <th>Fecha de Publicacion</th>
+                    <th>Ventas</th>
+                    <th>Autor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let libro of libros">
+                    <td>{{libro.titulo}}</td>
+                    <td>{{libro.fechaP}}</td>
+                    <td>{{libro.ventas}}</td>
+                    <td *ngIf="libro.autor != null;else none">{{libro.autor.nombre + libro.autor.apellidos}}
+                    </td>
+                    <ng-template #none>
+                        <td>Ningun Autor</td>
+                    </ng-template>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

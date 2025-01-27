@@ -10,7 +10,7 @@ class ApiController extends Controller
 {
     function getLibros()
     {
-        return Libro::all();
+        return Libro::with('autor')->get();
     }
     function getLibro($id)
     {

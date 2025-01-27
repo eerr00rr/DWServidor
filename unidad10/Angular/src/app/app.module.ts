@@ -7,13 +7,15 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AutorListComponent } from './autor-list/autor-list.component';
 import { provideHttpClient } from '@angular/common/http';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { LibroListComponent } from './libro-list/libro-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     AutorListComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    LibroListComponent
   ],
   imports: [
     BrowserModule,
