@@ -14,7 +14,7 @@ export class AutorListComponent implements OnInit {
   constructor(private autorService: DatosAutoresService) { }
 
   tituloListado = 'Listado de autores';
-
+  listFilter: string = '';
   autores: IAutor[] = [];
 
   ngOnInit() {
