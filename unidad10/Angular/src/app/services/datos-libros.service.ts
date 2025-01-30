@@ -14,4 +14,8 @@ export class DatosLibrosService {
   public getDatos(): Observable<HttpResponse<ILibro[]>> {
     return this._http.get<ILibro[]>(environment.apiUrl + '/api/libros', { observe: 'response' });
   }
+
+  public createLibro(datos: any): Observable<HttpResponse<ILibro[]>> {
+    return this._http.post<ILibro[]>(environment.apiUrl + '/api/libro', datos, { observe: 'response' });
+  }
 }
