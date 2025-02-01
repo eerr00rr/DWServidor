@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { DatosLibrosService } from '../services/datos-libros.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
-
+import { IAutor } from '../interfaces/iautor';
+import { DatosAutoresService } from '../services/datos-autores.service';
 @Component({
   selector: 'app-libro-create',
   standalone: false,
@@ -13,9 +14,11 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class LibroCreateComponent {
   myForm: FormGroup;
   errorMessage: string = '';
+  autores: IAutor[] = [];
 
   constructor(
     private libroService: DatosLibrosService,
+    private autorService: DatosAutoresService,
     private router: Router,
     private formBuilder: FormBuilder
   ) { this.myForm = new FormGroup({}); }
@@ -28,6 +31,11 @@ export class LibroCreateComponent {
       ventas: [null],
       autor_id: [null]
     });
+    this.autorService.getDatos().subscribe(datos => {
+      if (datos.body) {
+        this.autores = datos.body;
+      }
+    })
   }
 
   onSubmit(libro: any) {
@@ -36,7 +44,7 @@ export class LibroCreateComponent {
         this.router.navigate(['../libro-list']);
       },
       error: (error) => {
-        this.errorMessage = error;
+        this.errorMessage = error.message;
       }
     });
   }
