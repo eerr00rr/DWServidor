@@ -18,4 +18,16 @@ export class DatosAutoresService {
   public createAutor(datos: any): Observable<HttpResponse<IAutor[]>> {
     return this._http.post<IAutor[]>(environment.apiUrl + '/api/autor', datos, { observe: 'response' });
   }
+
+  public getAutor(id: any): Observable<HttpResponse<IAutor>> {
+    return this._http.get<IAutor>(environment.apiUrl + '/api/autor/' + id, { observe: 'response' });
+  }
+
+  public editAutor(id: any, datos: any): Observable<HttpResponse<IAutor>> {
+    return this._http.put<IAutor>(environment.apiUrl + '/api/autor/' + id, datos, { observe: 'response' });
+  }
+
+  public deleteAutor(id: any): Observable<HttpResponse<IAutor>> {
+    return this._http.delete<IAutor>(environment.apiUrl + '/api/autor/' + id, { observe: 'response' });
+  }
 }

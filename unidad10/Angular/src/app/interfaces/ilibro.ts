@@ -6,4 +6,5 @@ export interface ILibro {
     fechaP: string;
     ventas: number;
     autor: IAutor;
+    autor_id: number;
 }

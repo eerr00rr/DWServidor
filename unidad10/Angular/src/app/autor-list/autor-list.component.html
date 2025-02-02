@@ -25,6 +25,8 @@
                 <tr *ngFor="let autor of autores | autorListFilter:listFilter">
                     <td>{{autor.nombre}}</td>
                     <td>{{autor.apellidos}}</td>
+                    <td><button [routerLink]="['/autor-edit', autor.id]" class="btn btn-success">Editar</button></td>
+                    <td><button (click)="eliminarAutor(autor.id)" class="btn btn-danger">Eliminar</button></td>
                 </tr>
             </tbody>
         </table>

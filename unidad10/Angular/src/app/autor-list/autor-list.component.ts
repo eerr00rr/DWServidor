@@ -25,4 +25,9 @@ export class AutorListComponent implements OnInit {
       }
     });
   }
+  eliminarAutor(id: any) {
+    this.autorService.deleteAutor(id).subscribe(resp => {
+      this.ngOnInit();
+    });
+  }
 }

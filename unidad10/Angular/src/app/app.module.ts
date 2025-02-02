@@ -13,6 +13,8 @@ import { NgModule } from '@angular/core';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { provideHttpClient } from '@angular/common/http';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { LibroEditComponent } from './libro-edit/libro-edit.component';
+import { AutorEditComponent } from './autor-edit/autor-edit.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
     LibroListComponent,
     AutorListFilterPipe,
     LibroCreateComponent,
-    AutorCreateComponent
+    AutorCreateComponent,
+    LibroEditComponent,
+    AutorEditComponent
   ],
   imports: [
     BrowserModule,

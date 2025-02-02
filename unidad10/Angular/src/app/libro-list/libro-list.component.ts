@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DatosLibrosService } from '../services/datos-libros.service';
 import { ILibro } from '../interfaces/ilibro';
 
@@ -9,7 +9,7 @@ import { ILibro } from '../interfaces/ilibro';
   templateUrl: './libro-list.component.html',
   styleUrl: './libro-list.component.css'
 })
-export class LibroListComponent {
+export class LibroListComponent implements OnInit {
   constructor(private libroService: DatosLibrosService) { }
 
   tituloListado = 'Listado de libros';
@@ -22,6 +22,11 @@ export class LibroListComponent {
       if (resp.body) {
         this.libros = resp.body;
       }
+    });
+  }
+  eliminarLibro(id: any) {
+    this.libroService.deleteLibro(id).subscribe(resp => {
+      this.ngOnInit();
     });
   }
 }
