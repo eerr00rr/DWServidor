@@ -21,7 +21,7 @@ export class DatosLibrosService {
     return this._http.get<ILibro>(environment.apiUrl + `/api/libro/${id}`, { observe: 'response' });
   }
   public editLibro(id: any, datos: any): Observable<HttpResponse<ILibro>> {
-    return this._http.put<ILibro>(environment.apiUrl + `/api/libro?${id}`, datos, { observe: 'response' });
+    return this._http.put<ILibro>(environment.apiUrl + `/api/libro/${id}`, datos, { observe: 'response' });
   }
   public deleteLibro(id: any): Observable<HttpResponse<ILibro>> {
     return this._http.delete<ILibro>(environment.apiUrl + `/api/libro/${id}`, { observe: 'response' });

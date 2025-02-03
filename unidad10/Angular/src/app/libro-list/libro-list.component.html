@@ -20,7 +20,7 @@
                     <td>{{libro.titulo}}</td>
                     <td>{{libro.fechaP}}</td>
                     <td>{{libro.ventas}}</td>
-                    <td *ngIf="libro.autor != null; else none">{{libro.autor.nombre + libro.autor.apellidos}}
+                    <td *ngIf="libro.autor != null; else none">{{libro.autor.nombre + " " + libro.autor.apellidos}}
                     </td>
                     <ng-template #none>
                         <td>Ningun Autor</td>

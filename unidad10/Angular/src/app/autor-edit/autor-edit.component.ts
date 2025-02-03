@@ -43,7 +43,7 @@ export class AutorEditComponent {
     })
   }
   onSubmit(autor: any) {
-    this.autorService.createAutor(autor).subscribe({
+    this.autorService.editAutor(this.id, autor).subscribe({
       next: (data) => {
         this.router.navigate(['../autor-list']);
       },

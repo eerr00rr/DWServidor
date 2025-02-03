@@ -64,7 +64,8 @@ export class LibroEditComponent {
   }
 
   onSubmit(libro: any) {
-    this.libroService.createLibro(libro).subscribe({
+    console.log(libro);
+    this.libroService.editLibro(this.id, libro).subscribe({
       next: (data) => {
         this.router.navigate(['../libro-list']);
       },
