@@ -10,7 +10,7 @@ describe('AutorListComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [AutorListComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(AutorListComponent);
     component = fixture.componentInstance;

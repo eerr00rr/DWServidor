@@ -14,7 +14,7 @@ export class AutorListComponent implements OnInit {
   constructor(private autorService: DatosAutoresService) { }
 
   tituloListado = 'Listado de autores';
-
+  listFilter: string = '';
   autores: IAutor[] = [];
 
   ngOnInit() {
@@ -23,6 +23,11 @@ export class AutorListComponent implements OnInit {
       if (resp.body) {
         this.autores = resp.body;
       }
+    });
+  }
+  eliminarAutor(id: any) {
+    this.autorService.deleteAutor(id).subscribe(resp => {
+      this.ngOnInit();
     });
   }
 }

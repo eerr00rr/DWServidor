@@ -20,6 +20,22 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        DB::table('autors')->insert([
+            'nombre' => 'Jane',
+            'apellidos' => 'Doe'
+        ]);
+        DB::table('autors')->insert([
+            'nombre' => 'Artem',
+            'apellidos' => 'Morozov'
+        ]);
+        DB::table('autors')->insert([
+            'nombre' => 'Joe',
+            'apellidos' => 'Schmo'
+        ]);
+        DB::table('autors')->insert([
+            'nombre' => 'xxx',
+            'apellidos' => 'Tentacion'
+        ]);
 
         DB::table('libros')->insert([
             'titulo' => 'The Dog',
@@ -38,15 +54,6 @@ class DatabaseSeeder extends Seeder
             'fechaP' => '2013/01/05',
             'ventas' => 20,
             'autor_id' => null
-        ]);
-
-        DB::table('autors')->insert([
-            'nombre' => 'Jane',
-            'apellidos' => 'Doe'
-        ]);
-        DB::table('autors')->insert([
-            'nombre' => 'Artem',
-            'apellidos' => 'Morozov'
         ]);
     }
 }
