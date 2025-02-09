@@ -20,7 +20,11 @@
                 <tr>
                     <td>{{ $max->codigo }}</td>
                     <td>{{ $max->saldo }}</td>
-                    <td>{{ $max->cliente->getNombreApellidos() }}</td>
+                    <td>
+                        @isset($max->cliente)
+                        {{ $max->cliente->getNombreApellidos() }}
+                        @endisset
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -39,7 +43,11 @@
                 <tr>
                     <td>{{ $min->codigo }}</td>
                     <td>{{ $min->saldo }}</td>
-                    <td>{{ $min->cliente->getNombreApellidos() }}</td>
+                    <td>
+                        @isset($min->cliente)
+                        {{ $min->cliente->getNombreApellidos() }}
+                        @endisset
+                    </td>
                 </tr>
             </tbody>
         </table>
